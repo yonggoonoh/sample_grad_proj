@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	root to: 'home#index'
 
 	get 'search' => 'search#index'
+	post 'search/result' => 'search#result'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

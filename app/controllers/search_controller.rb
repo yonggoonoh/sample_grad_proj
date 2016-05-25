@@ -3,5 +3,6 @@ class SearchController < ApplicationController
 	end
 
 	def result
+		@result = params[:user_name]
 	end
 end

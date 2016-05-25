@@ -1,1 +1,8 @@
 <h1>search</h1>
+<div class="container">
+	<%= form_tag 'search/result', method: :post do %>
+		<label for="search">이름</label>
+		<%= search_field_tag :user_name, nil, { id: "search" } %>
+		<%= submit_tag "검색" %>
+	<% end %>
+</div>

@@ -4,12 +4,11 @@
 			<li><%= link_to "HOME", "/" %></li>
 		</div>
 		<div class="right">
-			<li><%= link_to "검색", "/search" %></li>
 			<% if !user_signed_in? %>
 				<li><%= link_to "로그인", "/users/sign_in" %></li>
 			<% else %>
-				<li><%= link_to current_user.username, "/users/edit" %></li>
-				<li><%= link_to "인물 검색", "/" %></li>
+				<li><%= link_to current_user.user_name, "/users/edit" %></li>
+				<li><%= link_to "인물 검색", "/search" %></li>
 				<li><%= link_to "로그아웃", "/users/sign_out", method: :delete %></li>
 			<% end %>
 		</div>

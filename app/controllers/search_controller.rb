@@ -5,4 +5,8 @@ class SearchController < ApplicationController
 	def result
 		@result = Contact.where("user_name like ?", "%#{params[:user_name]}%")
 	end
+
+	def route
+		@route = params[:contact_id]
+	end
 end

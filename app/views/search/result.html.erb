@@ -9,13 +9,17 @@
 				<th>이메일</th>
 				<th>전화번호</th>
 				<th></th>
+				<th></th>
 			</tr>
 			<% for i in 0..(@result.length-1) %>
 				<tr>
-					<td><%= @result[i].user_name %></td>
-					<td><%= @result[i].email %></td>
-					<td><%= @result[i].phone_number %></td>
-					<td><a href="/">find route</a></td>
+					<%= form_tag '/search/route', method: :post do %>
+						<td><%= @result[i].user_name %></td>
+						<td><%= @result[i].email %></td>
+						<td><%= @result[i].phone_number %></td>
+						<td><%= hidden_field_tag 'contact_id', @result[i].id %></td>
+						<td><%= submit_tag "find route", id: "find_route" %></td>
+					<% end %>
 				</tr>
 			<% end %>
 		</table>

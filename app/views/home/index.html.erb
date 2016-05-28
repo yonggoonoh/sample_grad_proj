@@ -1,1 +1,16 @@
-<h1>home</h1>
+<div class="container">
+	<table>
+		<tr>
+			<th>이름</th>
+			<th>친구</th>
+			<th>친밀도</th>
+		</tr>
+		<% for i in 0..(@rels.length-1) %>
+			<tr>
+				<td><%= Contact.find(@rels[i].contact_id).user_name %></td>
+				<td><%= Contact.find(@rels[i].friend).user_name %></td>
+				<td><%= @rels[i].degree %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>

@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20160528024921) do
   create_table "relationships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "contact_id"
-    t.decimal  "degree"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal  "degree",     default: 0.0
+    t.boolean  "fb_friend",  default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "relationships", ["contact_id"], name: "index_relationships_on_contact_id"

@@ -1,19 +1,23 @@
 <div class="container">
-	<h1>검색 결과</h1>
-	<table>
-		<tr>
-			<th>이름</th>
-			<th>이메일</th>
-			<th>전화번호</th>
-			<th></th>
-		</tr>
-		<% for i in 0..(@result.length-1) %>
+	<% if @result.empty? %>
+		<h1>해당 검색결과가 없습니다.</h1>
+	<% else %>
+		<h1>검색 결과</h1>
+		<table>
 			<tr>
-				<td><%= @result[i].user_name %></td>
-				<td><%= @result[i].email %></td>
-				<td><%= @result[i].phone_number %></td>
-				<td><a href="/">find route</a></td>
+				<th>이름</th>
+				<th>이메일</th>
+				<th>전화번호</th>
+				<th></th>
 			</tr>
-		<% end %>
-	</table>
+			<% for i in 0..(@result.length-1) %>
+				<tr>
+					<td><%= @result[i].user_name %></td>
+					<td><%= @result[i].email %></td>
+					<td><%= @result[i].phone_number %></td>
+					<td><a href="/">find route</a></td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
 </div>

@@ -14,17 +14,16 @@
 ActiveRecord::Schema.define(version: 20160528024921) do
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "user_name",                    null: false
-    t.string   "phone_number",                 null: false
+    t.string   "user_name",    null: false
+    t.string   "phone_number", null: false
     t.string   "email"
-    t.boolean  "fb_friend",    default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "contact_id"
+    t.integer  "friend",                     null: false
     t.decimal  "degree",     default: 0.0
     t.boolean  "fb_friend",  default: false
     t.datetime "created_at",                 null: false
@@ -32,7 +31,6 @@ ActiveRecord::Schema.define(version: 20160528024921) do
   end
 
   add_index "relationships", ["contact_id"], name: "index_relationships_on_contact_id"
-  add_index "relationships", ["user_id"], name: "index_relationships_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

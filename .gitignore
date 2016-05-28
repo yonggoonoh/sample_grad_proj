@@ -21,3 +21,6 @@
 
 # .swp
 *.swp
+
+# byebug history
+.byebug_history

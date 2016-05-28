@@ -1,5 +1,19 @@
-<h1>result</h1>
-
-<% for i in 0..(@result.length-1) %>
-	<%= @result[i].phone_number %>
-<% end %>
+<div class="container">
+	<h1>검색 결과</h1>
+	<table>
+		<tr>
+			<th>이름</th>
+			<th>이메일</th>
+			<th>전화번호</th>
+			<th></th>
+		</tr>
+		<% for i in 0..(@result.length-1) %>
+			<tr>
+				<td><%= @result[i].user_name %></td>
+				<td><%= @result[i].email %></td>
+				<td><%= @result[i].phone_number %></td>
+				<td><a href="/">find route</a></td>
+			</tr>
+		<% end %>
+	</table>
+</div>

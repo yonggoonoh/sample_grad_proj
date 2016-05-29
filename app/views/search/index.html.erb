@@ -1,8 +1,11 @@
-<h1>search</h1>
-<div class="container">
+<div class="w600">
 	<%= form_tag 'search/result', method: :post do %>
-		<label for="search_user">이름</label>
-		<%= search_field_tag :user_name, nil, { id: "search_user", name: "user_name" } %>
-		<%= submit_tag "검색", id: "search" %>
+		<h1 class="center">Search</h1>
+		<div class="input-group search-box">
+			<%= search_field_tag :user_name, nil, { id: "search_user", name: "user_name", class: "form-control", placeholder: "Search for..." } %>
+			<span class="input-group-btn">
+				<%= submit_tag "검색", { id: "search", class: "btn btn-default" } %>
+			</span>
+		</div>
 	<% end %>
 </div>

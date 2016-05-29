@@ -13,14 +13,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
-
-	<%= render "layouts/header" %>
-
 	<div id="flash" style="width: 100%; position: fixed; top: 0; z-index: 10;">
 		<%= render "layouts/flash" %>
 	</div>
-
-	<%= yield %>
-
+	<div class="container">
+		<%= render "layouts/header" %>
+		<%= yield %>
+	</div>
 </body>
 </html>

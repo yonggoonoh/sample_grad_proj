@@ -1,16 +1,18 @@
-<div>
-	<ul>
-		<div class="left">
-			<li><%= link_to "HOME", "/" %></li>
-		</div>
-		<div class="right">
-			<% if !user_signed_in? %>
-				<li><%= link_to "로그인", "/users/sign_in" %></li>
-			<% else %>
-				<li><%= link_to current_user.user_name, "/users/edit" %></li>
-				<li><%= link_to "인물 검색", "/search" %></li>
-				<li><%= link_to "로그아웃", "/users/sign_out", method: :delete %></li>
-			<% end %>
-		</div>
-	</ul>
-</div>
+<nav>
+	<div id="header">
+		<ul class="nav">
+			<div>
+				<li><%= link_to "HOME", "/" %></li>
+			</div>
+			<div>
+				<% if !user_signed_in? %>
+					<li><%= link_to "로그인", "/users/sign_in" %></li>
+				<% else %>
+					<li><%= link_to current_user.user_name, "/users/edit" %></li>
+					<li><%= link_to "인물 검색", "/search" %></li>
+					<li><%= link_to "로그아웃", "/users/sign_out", method: :delete %></li>
+				<% end %>
+			</div>
+		</ul>
+	</div>
+</nav>

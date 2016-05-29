@@ -1,26 +1,28 @@
-<div class="container">
+<div class="w600">
 	<% if @result.empty? %>
-		<h1>해당 검색결과가 없습니다.</h1>
+		<h1 class="center">해당 검색결과가 없습니다.</h1>
 	<% else %>
-		<h1>검색 결과</h1>
-		<table>
-			<tr>
-				<th>이름</th>
-				<th>이메일</th>
-				<th>전화번호</th>
-				<th></th>
-			</tr>
-			<% for i in 0..(@result.length-1) %>
+		<h1 class="center">검색 결과</h1>
+		<div class="search-result">
+			<table class="table">
 				<tr>
-					<%= form_tag '/search/route', method: :post do %>
-						<%= hidden_field_tag 'contact_id', @result[i].id %>
-						<td><%= @result[i].user_name %></td>
-						<td><%= @result[i].email %></td>
-						<td><%= @result[i].phone_number %></td>
-						<td><%= submit_tag "find route", id: "find_route" %></td>
-					<% end %>
+					<th>이름</th>
+					<th>이메일</th>
+					<th>전화번호</th>
+					<th></th>
 				</tr>
-			<% end %>
-		</table>
+				<% for i in 0..(@result.length-1) %>
+					<tr>
+						<%= form_tag '/search/route', method: :post do %>
+							<%= hidden_field_tag 'contact_id', @result[i].id %>
+							<td><%= @result[i].user_name %></td>
+							<td><%= @result[i].email %></td>
+							<td><%= @result[i].phone_number %></td>
+							<td><%= submit_tag "find route", id: "find_route", class: "btn btn-default" %></td>
+						<% end %>
+					</tr>
+				<% end %>
+			</table>
+		</div>
 	<% end %>
 </div>

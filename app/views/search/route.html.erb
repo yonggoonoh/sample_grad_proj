@@ -1,3 +1,7 @@
-<h1>route page</h1>
-
-<%= @route %> 
+<div>
+	<h2><b>the best route <span style="font-size: 20px;">(<%= Contact.find(@route.first).user_name %> = > <%= Contact.find(@route.last).user_name %>)</span></b></h2>
+	<% @route.each do |r| %> 
+		<% cont = Contact.find(r) %>
+		<h3><%= cont.user_name %><span style="font-size: 20px;">(<%= cont.email %>, <%= cont.phone_number %>)</span></h3>
+	<% end %>
+</div>

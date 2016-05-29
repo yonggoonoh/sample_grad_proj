@@ -47,3 +47,7 @@ end
 
 # Devise gem
 gem 'devise'
+
+# Dijkstra
+#gem 'dijkstra'
+gem 'shortest_path'

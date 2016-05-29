@@ -13,9 +13,9 @@ class SearchController < ApplicationController
 		r = {}
 		Relationship.all.each do |rel|
 			if r["#{rel.contact_id}"].nil?
-				r["#{rel.contact_id}"] = { "#{rel.friend}" => (10-rel.degree) }
+				r["#{rel.contact_id}"] = { "#{rel.friend}" => (20-rel.degree) }
 			else
-				r["#{rel.contact_id}"].merge!({"#{rel.friend}" => (10-rel.degree) })
+				r["#{rel.contact_id}"].merge!({"#{rel.friend}" => (20-rel.degree) })
 			end
 		end
 
@@ -26,5 +26,10 @@ class SearchController < ApplicationController
 		finder.timeout = 2
 
 		@route = finder.path
+
+		@sum = 1
+		for i in 0..(@route.length-2)
+			@sum *= (Relationship.where(contact_id: @route[i], friend: @route[i+1])[0].degree)/10
+		end
 	end
 end

@@ -1,7 +1,10 @@
 <div>
 	<h2><b>the best route <span style="font-size: 20px;">(<%= Contact.find(@route.first).user_name %> = > <%= Contact.find(@route.last).user_name %>)</span></b></h2>
+	<hr>
 	<% @route.each do |r| %> 
 		<% cont = Contact.find(r) %>
 		<h3><%= cont.user_name %><span style="font-size: 20px;">(<%= cont.email %>, <%= cont.phone_number %>)</span></h3>
 	<% end %>
+	<hr>
+	<h3>해당 경로의 친밀도 지수는 <b><%= @sum %></b>입니다.</h3>
 </div>
